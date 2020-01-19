@@ -1,0 +1,17 @@
+package com.project.model;
+
+import java.sql.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "loan")
+public class Loan {
+
+	private int id;
+	private String borrower;
+	private Date borrowed;
+	private Date returned;
+	private Book book;
+}

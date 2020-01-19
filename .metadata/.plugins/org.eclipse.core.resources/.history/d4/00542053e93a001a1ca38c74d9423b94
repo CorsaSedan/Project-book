@@ -1,0 +1,33 @@
+package com.project.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.project.dao.BookDAO;
+import com.project.model.Book;
+
+@Controller
+public class BookController {
+
+	private BookDAO dao;
+	
+	@GetMapping("/book")
+	public String start() {
+		return "book-list-view";
+	}
+	
+	@GetMapping("/books")
+	public List<Book> getAllBooks() {
+		return dao.findAll();
+	}
+	
+	@GetMapping("/books/{id}")
+	public Optional<Book> getBookById (@PathVariable(value = "id")Integer id) {
+		return dao.findById(id);
+	}
+}

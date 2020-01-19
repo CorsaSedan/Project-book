@@ -1,0 +1,11 @@
+package com.project.model;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Contato {
+
+	@Id
+	private int id;
+}

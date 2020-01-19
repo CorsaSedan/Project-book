@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Lista de Livros</title>
+</head>
+ 
+<body>
+  <table>
+  <thead>
+  </table>
+</body>
+</html>

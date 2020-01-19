@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Emprestimos</title>
+</head>
+
+<body>
+	<h2>Cadastro</h2>
+	<form action="#" th:action="@{/book/{id}(id = ${book.id})/loan}" th:object="${loan}" method="post">
+		<label>Mutuario</label> <input type="text" th:field="*{borrower}">
+		<label>Data Emprestipo</label> <input type="date" th:field="*{borrowed}">
+		<label>Data Devolucao</label> <input type="date" th:field="*{returned}">
+		<input type="submit" value="Salvar">
+	</form>
+	<br>
+	<h2>Lista de Cadastros</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Mutuario</th>
+				<th>Data Emprestimo</th>
+				<th>Data Devolucao</th>
+				<th>Id Livro</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="loan: ${loans}">
+				<td th:text="${loan.borrower}"></td>
+				<td th:text="${loan.borrowed}"></td>
+				<td th:text="${loan.returned}"></td>
+				<td th:text="$(loan.book.id)"></td>
+				<td><a>Editar</a></td>
+				<td><a>Excluir</a></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

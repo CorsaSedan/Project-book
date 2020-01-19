@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Listagem de contatos utilizando o Spring Boot</title>
+</head>
+ 
+<body>
+  <h1>Lista de contatos</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nome</th>
+        <th>Numero</th>
+        <th>Atualizar</th>
+        <th>Excluir</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="contato: ${contatos}">  
+        <td th:text="${contato.id}"></td>
+        <td th:text="${contato.name}"></td>
+        <td th:text="${contato.num}"></td>
+        <td><button>Editar</button></td>
+        <td><button type="submit" th:action="@{/excluirContato}" th:object="${contato}" method="post">Excluir</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <a href="/cadastrarContato">Cadastrar um Novo Contato</a>
+</body>
+</html>

@@ -1,0 +1,37 @@
+package com.project.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.project.dao.ContatoDAO;
+import com.project.model.Contato;
+
+@Controller
+@RequestMapping("/contatos")
+public class ContatoController {
+
+	@Autowired
+	private ContatoDAO dao;
+	
+	@GetMapping
+	public ModelAndView listar() {
+		List<Contato> lista = dao.findAll();
+		
+		ModelAndView mov = new ModelAndView("contatos");
+		mov.addObject("contatos", lista);
+		
+		return mov;
+	}
+	
+	@PostMapping
+	public void saveContato(@RequestBody Contato contato) {
+		dao.save(contato);
+	}
+}

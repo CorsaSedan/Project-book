@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Listagem de contatos utilizando o Spring Boot</title>
+</head>
+ 
+<body>
+  <h1>Cadastro de contatos</h1>
+  <table>
+  <form action="#" th:action="@{/salvarcontato}" th:object="${contato}" method="post">
+  	<label>Id</label>
+  	<input type="text" th:field="*{id}">
+  	<label>Nome</label>	
+  	<input type="text" th:field="*{name}">
+  	<label>Numero</label>
+  	<input type="text" th:field="*{num}">
+  	<input type="submit" value="Salvar">
+  </form>
+</body>
+</html>

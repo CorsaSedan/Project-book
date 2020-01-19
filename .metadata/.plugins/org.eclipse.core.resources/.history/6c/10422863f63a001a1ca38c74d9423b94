@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Lista de Livros</title>
+</head>
+ 
+<body>
+<h2>Editar Livro</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Titulo</th>
+        <th>Autor</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr> 
+        <td th:text="${book.id}"></td>
+        <td>
+        	<input type="text" th:value="${book.title}" th:field="*{title}">
+        </td>
+        <td>
+        	<input type="text" th:value="${book.autor}" th:field="*{autor}">
+        </td>
+        <td>
+        	<input type="submit" value="Salvar">
+        </td>
+        <td>
+        	<input type="submit" value="Excluir">
+        </td>
+        <td>
+        	<input type="submit" value="Emprestimos">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <form action="#" th:action="@{/book}" th:object="${book}" method="post">
+  		<label>Titulo</label>	
+  		<input type="text" th:field="*{title}">
+  		<label>Autor</label>
+  		<input type="text" th:field="*{autor}">
+  		<input type="submit" value="Salvar">
+  	</form>
+</body>
+</html>

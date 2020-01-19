@@ -1,0 +1,36 @@
+package com.project.model;
+
+import java.sql.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "loan")
+public class Loan {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	private String borrower;
+	private Date borrowed;
+	private Date returned;
+	private Book book;
+	
+	public Loan() {
+	}
+	
+	public Loan(int id, String borrower, Date borrowed, Date returned, Book book) {
+		super();
+		this.id = id;
+		this.borrower = borrower;
+		this.borrowed = borrowed;
+		this.returned = returned;
+		this.book = book;
+	}
+	
+	
+}

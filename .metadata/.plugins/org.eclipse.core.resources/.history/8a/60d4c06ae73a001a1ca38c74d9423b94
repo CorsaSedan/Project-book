@@ -1,0 +1,26 @@
+package com.project.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.project.dao.BookDAO;
+
+@Controller
+public class BookController {
+
+	private BookDAO dao;
+	
+	@GetMapping("/")
+	public String start() {
+		return "redirect:/book";
+	}
+	
+	@GetMapping("/book")
+	public String listAll() {
+		
+		
+		return "book-list-view";
+	}
+	
+	
+}

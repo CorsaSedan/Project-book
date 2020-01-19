@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Listagem de contatos utilizando o Spring Boot</title>
+</head>
+ 
+<body>
+  <h1>Lista de contatos</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nome</th>
+        <th>Numero</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="contato: ${contatos}">  
+        <td th:text="${contato.id}"></td>
+        <td th:text="${contato.name}"></td>
+        <td th:text="${contato.num}"></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <form action="salvarContato">
+  	<label>Nome</label>
+  	<input name="name">
+  	<label>Numero</label>
+  	<input name="num">
+  	<input type="submit" value="Salvar">
+  </form>
+</body>
+</html>

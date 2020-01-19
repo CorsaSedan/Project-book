@@ -1,0 +1,25 @@
+package com.project.controller;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.project.dao.ContatoDAO;
+import com.project.model.Contato;
+
+@Controller
+public class ContatoController {
+
+	//private Contato contato;
+	
+	public ModelAndView listar() {
+		List<Contato> contatos = ContatoDAO.findAll();
+		
+		ModelAndView mav = new ModelAndView("contato");
+		mav.addObject("contato", contatos);
+		
+		return mav;
+	}
+	
+}

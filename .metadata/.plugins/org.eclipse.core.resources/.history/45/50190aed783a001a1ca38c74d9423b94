@@ -1,0 +1,23 @@
+package com.project.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.project.dao.ContatoDAO;
+import com.project.model.Contato;
+
+@RestController
+public class ContatoController {
+
+	@Autowired
+	private ContatoDAO dao;
+	
+	@GetMapping("/")
+	public String bookContato (List<Contato> contatos) {
+		
+		return "All Right";
+	}
+}
